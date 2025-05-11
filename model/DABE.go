@@ -241,7 +241,7 @@ func (d *DABE) OutsourceDecrypt(cipher *Cipher, privateKeys map[string]*TK) (*PB
 		attrStr := policy.AccessStruct.PolicyMaps[i+1]
 
 		
-		tk0 := d.CurveParam.GetZnFromStringHash("kiki", sha256.New())
+		tk0 := d.CurveParam.GetZnFromStringHash(privateKeys[attrStr].TK0, sha256.New())
 		tk1 := privateKeys[attrStr].TK1
 		tk2 := privateKeys[attrStr].TK2
 		tk3 := privateKeys[attrStr].TK3
